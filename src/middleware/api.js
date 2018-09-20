@@ -1,8 +1,11 @@
 import { schema } from 'normalizr'
-import { API_ROOT } from '../consts'
-import rp from 'request-promise'
+import { API_ROOT, MOCK_API_ROOT } from '../consts'
+import rpReal from 'request-promise'
+import rpMock from './api_mock'
 
 export const CALL_API = 'Call API'
+const rp = process.env.NODE_ENV === 'test' ? rpMock : rpReal;
+const ApiRoot = process.env.NODE_ENV === 'test' ? MOCK_API_ROOT : API_ROOT;
 
 const profileSchema = new schema.Entity('profile', {}, {
   firstName: user => user.firstName,
@@ -18,7 +21,7 @@ export const Schemas = {
 }
 
 const callApi = (endpoint, opts, schema) => {
-  const fullUrl = (endpoint.indexOf(API_ROOT) === -1) ? API_ROOT + endpoint : endpoint
+  const fullUrl = (endpoint.indexOf(ApiRoot) === -1) ? ApiRoot + endpoint : endpoint
 
   let rpOpts = Object.assign({}, opts, {
     uri: fullUrl,
@@ -32,7 +35,7 @@ const callApi = (endpoint, opts, schema) => {
       }
 
       return json.data
-    }, (error, a, b) => {
+    }, (error) => {
       if (error.error) {
         let json = error.error;
         if (!json.success && json.error) {
