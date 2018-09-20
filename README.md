@@ -22,5 +22,6 @@ Start dev server (will be available on `localhost:3000`):
 
 Build production version (can be accessable from `localhost:3001`):
 `npm run build`
+
 Run tests:
 `npm run test a`
