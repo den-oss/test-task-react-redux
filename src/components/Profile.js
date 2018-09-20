@@ -5,7 +5,7 @@ const FormItem = Form.Item;
 
 //todo: connect to redux directly
 
-export default class Explore extends Component {
+export default class Profile extends Component {
   static propTypes = {
     profile: PropTypes.shape({
       firstName: PropTypes.string,

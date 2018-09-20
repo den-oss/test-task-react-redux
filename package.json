@@ -7,6 +7,8 @@
   },
   "dependencies": {
     "antd": "^3.9.2",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.5.0",
     "lodash": "^4.17.11",
     "normalizr": "^3.2.4",
     "prop-types": "^15.6.1",
