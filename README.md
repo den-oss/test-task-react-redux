@@ -2,17 +2,23 @@
 Install:
 `npm run i`
 
-Srart server:
+Srart server (default address is `localhost:3001/api`):
 `npm run start`
 
 env:
 - MONGODB_CONNECT - default is 'mongodb://localhost:27018/demoDB'
 - PORT - defautl is 3001
 
+Example with using env:
+`MONGODB_CONNECT='mongodb://localho:27017/demoDB' PORT=8080 npm run start`
+
 # react app
 
+Install:
 `npm run i`
-`npm run start`  - dev version
-`npm run test`  - run tests
 
+Start dev server (will be available on `localhost:3000`):
+`npm run start`
 
+Build production version (can be accessable from `localhost:3001`):
+`npm run build`
