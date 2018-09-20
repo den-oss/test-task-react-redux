@@ -5,7 +5,10 @@ import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import configureStore from '../store/configureStore'
+import enzyme, {shallow} from 'enzyme';
 const store = configureStore()
+import Adapter from 'enzyme-adapter-react-16'
+enzyme.configure({ adapter: new Adapter() });
 const timeoutPr = ms => new Promise(res => setTimeout(res, ms));
 
 import api from '../middleware/api'

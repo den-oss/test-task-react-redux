@@ -75,6 +75,7 @@ export default class Profile extends Component {
       <Form className="profile-form">
         <FormItem {...formItemLayout} label="First Name" >
           <Input 
+            className="firstName"
             placeholder="First Name" 
             value={profile.firstName || ""}
             onChange={(e) => this.setState({
@@ -84,6 +85,7 @@ export default class Profile extends Component {
         </FormItem>
         <FormItem {...formItemLayout} label="Last Name">
           <Input 
+            className="lastName"
             placeholder="Last Name" 
             value={profile.lastName || ""}
             onChange={(e) => this.setState({
@@ -93,6 +95,7 @@ export default class Profile extends Component {
         </FormItem>
         <FormItem {...formItemLayout} label="Company">
           <Input 
+            className="company"
             placeholder="Company" 
             value={profile.company || ""}
             onChange={(e) => this.setState({
@@ -102,6 +105,7 @@ export default class Profile extends Component {
         </FormItem>
         <FormItem {...formItemLayout} label="Department">
           <Input 
+            className="department"
             placeholder="Department" 
             value={profile.department || ""}
             onChange={(e) => this.setState({
@@ -111,6 +115,7 @@ export default class Profile extends Component {
         </FormItem>
         <FormItem {...formItemLayout} label="Position">
           <Input 
+            className="position"
             placeholder="Position" 
             value={profile.position || ""}
             onChange={(e) => this.setState({
@@ -120,6 +125,7 @@ export default class Profile extends Component {
         </FormItem>
         <FormItem {...formItemLayout} label="Email">
           <Input 
+            className="email"
             placeholder="Email" 
             type="email"
             value={profile.email || ""}
