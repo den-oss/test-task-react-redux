@@ -11,7 +11,6 @@ const profileReducer = (state = {
   profile: null
 }, action) => {
   let newState = {...state};
-
   switch (action.type) {
     case ActionTypes.RESET_ERROR_MESSAGE:
       newState.errorMessage = null;
@@ -30,7 +29,7 @@ const profileReducer = (state = {
     case ActionTypes.GET_PROFILE_FAILURE:
       newState.isFetching = false;
       newState.errorMessage = action.error;
-      newState.profile = action.response;
+      //newState.profile = null;
     break;
     case ActionTypes.SAVE_PROFILE_SUCCESS:
       newState.isSaving = false;
@@ -46,7 +45,6 @@ const profileReducer = (state = {
     case ActionTypes.SAVE_PROFILE_FAILURE:
       newState.isSaving = false;
       newState.errorMessage = action.error;
-      newState.profile = action.response;
     break;
     default:
     break;
