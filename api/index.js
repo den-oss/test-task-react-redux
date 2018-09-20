@@ -23,7 +23,7 @@ const enableCORS = function(req, res, next) {
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-app.use(express.static('../public')); //react app
+app.use(express.static('../build')); // react app
 app.use(logger('dev'));
 app.use(enableCORS);
 
