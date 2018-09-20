@@ -29,7 +29,7 @@ const _saveProfile = (profile) => ({
     types: [ SAVE_PROFILE_REQUEST, SAVE_PROFILE_SUCCESS, SAVE_PROFILE_FAILURE ],
     endpoint: `/profile`,
     opts: {
-      method: 'POST',
+      method: 'PUT',
       body: {
           profile: profile
       },

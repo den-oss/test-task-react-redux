@@ -37,10 +37,10 @@ const profileReducer = (state = {
       newState.errorMessage = null;
       newState.profile = action.response;
 
-  notification.open({
-    message: 'Profile saved',
-    icon: <Icon type="smile" style={{ color: '#108ee9' }} />,
-  });
+      notification.open({
+        message: 'Profile saved',
+        icon: <Icon type="smile" style={{ color: '#108ee9' }} />,
+      });
 
     break;
     case ActionTypes.SAVE_PROFILE_FAILURE:

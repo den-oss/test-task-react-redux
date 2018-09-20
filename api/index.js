@@ -1,44 +1,11 @@
 const express = require('express');
-const app = express();
 const bodyParser = require('body-parser');
 const logger = require('morgan');
-const port = process.env.PORT || 3001;
+const {mongoose} = require('./db/connect');
+const profileRouter = require('./router/profile');
+
 const apiPath = '/api/';
-
-//--------------------------
-
-let profile = null;
-
-const profileRouter = express.Router();
-
-profileRouter.get('/', async (req, res, next) => {
-    try {
-        // todo: use mongo
-        // const profile = await Profile.findOne({});
-        // return res.send({success: true, data: profile});
-
-        return res.send({success: true, data: profile});
-    } catch (error) {
-        return next(error);
-    }
-});
-
-profileRouter.post('/', async (req, res, next) => {
-    try {
-        let newProfile = req.body.profile;
-        if (!newProfile)
-            throw new Error("No profile in body");
-
-        //todo: validate newProfile
-        profile = newProfile;
-
-        return res.send({success: true, data: newProfile});
-    } catch (error) {
-        return next(error);
-    }
-});
-
-//--------------------------
+const port = process.env.PORT || 3001;
 
 const enableCORS = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -53,6 +20,7 @@ const enableCORS = function(req, res, next) {
     }
 };
 
+const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static('../public')); //react app
